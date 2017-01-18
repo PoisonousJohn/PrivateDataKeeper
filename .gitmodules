@@ -1,3 +1,6 @@
 [submodule "quickandroid"]
 	path = quickandroid
 	url = https://github.com/benlau/quickandroid
+[submodule "fluid"]
+	path = fluid
+	url = git@github.com:JohnPoison/fluid.git

@@ -1,9 +1,11 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
-import QuickAndroid 0.1
+import Fluid.Controls 1.0
+import Fluid.Material 1.0
+//import QuickAndroid 0.1
 
-Paper {
+Card {
     id: privateDataListItem
     
     property bool expanded: false
@@ -22,7 +24,7 @@ Paper {
         titleField.focus = false;
     }
 
-    Ink {
+    Ripple {
         anchors.fill: parent
         onClicked: privateDataListItem.clicked()
     }
@@ -42,7 +44,7 @@ Paper {
             anchors.leftMargin: 10
         }
 
-        RaisedButton {
+        Button {
             id: copyBtn
             text: "Copy password"
             anchors.verticalCenter: parent.verticalCenter
@@ -71,13 +73,13 @@ Paper {
 
             TextField {
                 id: titleField
-                floatingLabelText: "Title"
+//                floatingLabelText: "Title"
                 text: model ? model.title : ""
             }
 
             TextField {
                 id: passField
-                floatingLabelText: "Password"
+//                floatingLabelText: "Password"
                 echoMode: TextInput.Password
                 text: model ? model.password : ""
             }
