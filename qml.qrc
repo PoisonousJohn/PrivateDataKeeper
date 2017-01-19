@@ -22,5 +22,9 @@
         <file>icons/navigation_more_vert.svg</file>
         <file>CustomActionBar.qml</file>
         <file>Icon.qml</file>
+        <file>PrivateDataList.qml</file>
+        <file>Curtain.qml</file>
+        <file>AuthOverlay.qml</file>
+        <file>SmoothActionButton.qml</file>
     </qresource>
 </RCC>
