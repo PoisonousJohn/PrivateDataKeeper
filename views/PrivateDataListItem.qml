@@ -3,6 +3,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import Fluid.Controls 1.0
 import Fluid.Material 1.0
+import QuickFlux 1.0
+import "../actions"
 //import QuickAndroid 0.1
 
 Card {
@@ -11,17 +13,24 @@ Card {
     property bool expanded: false
     property var fullScreenContainer
     property var model: {
+        "uid" : 777,
         "title" : "Title",
         "password" : "pass"
     }
 
+    signal clicked
+
     height: 60
     implicitHeight: height
 
-    signal clicked
 
     onClicked: {
         titleField.focus = false;
+        if (expanded) {
+            AppActions.closePasswordDetails(model.uid)
+        } else {
+            AppActions.openPasswordDetails(model.uid)
+        }
     }
 
     Ripple {
@@ -37,7 +46,7 @@ Card {
         anchors.right: parent.right
 
         Text {
-            text: model.title
+            text: model ? model.title : ""
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: copyBtn.left
             anchors.left: parent.left
@@ -46,6 +55,7 @@ Card {
 
         Button {
             id: copyBtn
+            visible: model !== undefined && model != null && model.password.length > 0
             text: "Copy password"
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
@@ -95,7 +105,22 @@ Card {
 
     }
 
-    
+    AppListener {
+        onDispatched: {
+            if (message.uid === privateDataListItem.model.uid)
+            {
+                switch (type) {
+                    case "openPasswordDetails":
+                        privateDataListItem.expanded = true;
+                        break;
+                    case "closePasswordDetails":
+                        privateDataListItem.expanded = false;
+                        break;
+                }
+
+            }
+        }
+    }
 
     states: [
         State {
@@ -151,6 +176,10 @@ Card {
             to: "Normal"
             onRunningChanged: {
                 testParent.z = running ? 100 : 0
+                if (!running)
+                {
+                   AppActions.cancelEditingPassword(model.uid);
+                }
             }
             
             ParentAnimation {

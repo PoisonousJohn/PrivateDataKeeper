@@ -1,15 +1,17 @@
-QT += qml quick
+QT += qml quick svg
 
 CONFIG += c++11
 
 SOURCES += main.cpp
 
 RESOURCES += qml.qrc
+#RESOURCES += fluid/icons/icons.qrc
+#RESOURCES += fluid/core/core.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 message("Project path: " $$PWD)
-#QML_IMPORT_PATH = $$PWD
-#QML2_IMPORT_PATH = $$QML_IMPORT_PATH
+QML_IMPORT_PATH = $$PWD
+QML2_IMPORT_PATH = $$QML_IMPORT_PATH
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
@@ -31,4 +33,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 include(quickandroid/quickandroid.pri)
-#include(fluid/fluid.pri)
+include(fluid/fluid.pri)
+include(quickflux/quickflux.pri)
+
+DISTFILES += \
+    stores/qmldir \
+    actions/qmldir

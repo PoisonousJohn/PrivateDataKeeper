@@ -5,7 +5,6 @@
         <file>Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Palette.qml</file>
-        <file>PrivateDataListItem.qml</file>
         <file>icons/action_done.svg</file>
         <file>icons/action_search.svg</file>
         <file>icons/action_today.svg</file>
@@ -22,9 +21,15 @@
         <file>icons/navigation_more_vert.svg</file>
         <file>CustomActionBar.qml</file>
         <file>Icon.qml</file>
-        <file>PrivateDataList.qml</file>
         <file>Curtain.qml</file>
-        <file>AuthOverlay.qml</file>
         <file>SmoothActionButton.qml</file>
+        <file>views/AuthOverlay.qml</file>
+        <file>views/PrivateDataList.qml</file>
+        <file>views/PrivateDataListItem.qml</file>
+        <file>actions/AppActions.qml</file>
+        <file>stores/PasswordsStore.qml</file>
+        <file>stores/MainStore.qml</file>
+        <file>actions/qmldir</file>
+        <file>stores/qmldir</file>
     </qresource>
 </RCC>

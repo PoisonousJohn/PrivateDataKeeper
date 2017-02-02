@@ -4,6 +4,7 @@ import Fluid.Controls 1.0
 import Fluid.Material 1.0
 import QtQuick.Controls.Material 2.0
 import QuickAndroid 0.1 as And
+import '../'
 
 Page {
 

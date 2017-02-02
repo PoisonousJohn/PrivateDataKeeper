@@ -4,3 +4,6 @@
 [submodule "fluid"]
 	path = fluid
 	url = git@github.com:JohnPoison/fluid.git
+[submodule "quickflux"]
+	path = quickflux
+	url = https://github.com/benlau/quickflux.git

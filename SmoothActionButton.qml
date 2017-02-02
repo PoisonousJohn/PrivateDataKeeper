@@ -12,12 +12,12 @@ ActionButton {
     Material.background: actionButton.enabled
                          ? color
                          : Material.color(Material.Grey)
-    enabled: pass.displayText.length > 0
-    
+    Behavior on opacity {
+        PropertyAnimation {}
+    }
+
     Behavior on color {
-        
-        ColorAnimation {
-        }
+        PropertyAnimation {}
     }
     
 }
